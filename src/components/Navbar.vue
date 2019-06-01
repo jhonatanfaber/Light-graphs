@@ -16,7 +16,7 @@
 }
 
 .logo {
-  margin-left: 40px;
+  margin-left: 2.5em;
 }
 
 .fa-lightbulb {
@@ -25,5 +25,11 @@
 
 #logo-text {
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    font-size: 11px;
+  }
 }
 </style>

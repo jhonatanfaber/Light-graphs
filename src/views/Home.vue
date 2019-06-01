@@ -41,6 +41,14 @@ export default {
 .filters span {
   margin: 3em;
   cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .filters span {
+    font-size: 0.8em;
+  }
 }
 </style>
 
