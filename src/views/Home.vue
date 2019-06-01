@@ -43,6 +43,7 @@ export default {
   cursor: pointer;
   font-size: 1em;
   font-weight: bold;
+  color: white;
 }
 
 @media (max-width: 768px) {
