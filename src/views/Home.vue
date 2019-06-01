@@ -1,9 +1,18 @@
 <template>
   <div class="home-wrapper">
     <div class="filters">
-      <span @click="selectedComponent='UnPrecioFare'">Un Precio</span>
-      <span @click="selectedComponent='DosPreciosFare'">Dos Precios</span>
-      <span @click="selectedComponent='MultipleFare'">Multiples Precios</span>
+      <span
+        @click="saveFilter('UnPrecioFare')"
+        :style="[selectedComponent == 'UnPrecioFare' ? {'color':'#000000'} : {'color':'#ffffff'}]"
+      >Un Precio</span>
+      <span
+        @click="saveFilter('DosPreciosFare')"
+        :style="[selectedComponent == 'DosPreciosFare' ? {'color':'#000000'} : {'color':'#ffffff'}]"
+      >Dos Precios</span>
+      <span
+        @click="saveFilter('MultipleFare')"
+        :style="[selectedComponent == 'MultipleFare' ? {'color':'#000000'} : {'color':'#ffffff'}]"
+      >Multiples Precios</span>
     </div>
     <component :is="selectedComponent"></component>
   </div>
@@ -13,12 +22,19 @@
 import UnPrecioFare from "@/components/UnPrecioFare.vue";
 import DosPreciosFare from "@/components/DosPreciosFare.vue";
 import MultipleFare from "@/components/MultipleFare.vue";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
       selectedComponent: "UnPrecioFare"
     };
+  },
+  methods: {
+    saveFilter(filter) {
+      this.selectedComponent = filter;
+      this.$store.commit("saveSelectedFilter", filter);
+    }
   },
   components: {
     UnPrecioFare,

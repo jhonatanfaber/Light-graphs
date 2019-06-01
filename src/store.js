@@ -9,7 +9,8 @@ export default new Vuex.Store({
     prices: [],
     unPrecio: [],
     dosPrecios: [],
-    multiple: []
+    multiple: [],
+    selectedFilter : 'UnPrecioFare'
 
   },
   getters: {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     multiple(state) {
       return state.multiple
     },
+    selectedFilter(state){
+      return state.selectedFilter
+    }
 
   },
   mutations: {
@@ -40,6 +44,9 @@ export default new Vuex.Store({
       payload["3.0a"].forEach(element => {
         state.multiple = Object.entries(element);
       });
+    },
+    saveSelectedFilter(state, payload){
+      state.selectedFilter = payload
     }
   },
   actions: {
